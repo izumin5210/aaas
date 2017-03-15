@@ -10,4 +10,5 @@
 #
 
 class LoginName < ApplicationRecord
+  validates :id, uniqueness: true, login_name_format: true
 end
