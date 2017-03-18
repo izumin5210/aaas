@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170318163837) do
+ActiveRecord::Schema.define(version: 20170318204938) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,25 @@ ActiveRecord::Schema.define(version: 20170318163837) do
     t.index ["token"], name: "index_oauth_access_tokens_on_token", unique: true, using: :btree
   end
 
+  create_table "oauth_accounts", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "uid",           null: false
+    t.string   "provider",      null: false
+    t.string   "name"
+    t.string   "nickname"
+    t.string   "email"
+    t.string   "url"
+    t.string   "image_url"
+    t.string   "access_token"
+    t.string   "access_secret"
+    t.text     "raw_info",      null: false
+    t.text     "credentials",   null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["uid", "provider"], name: "index_oauth_accounts_on_uid_and_provider", unique: true, using: :btree
+    t.index ["user_id"], name: "index_oauth_accounts_on_user_id", using: :btree
+  end
+
   create_table "oauth_applications", force: :cascade do |t|
     t.string   "name",                      null: false
     t.string   "uid",                       null: false
@@ -85,5 +104,6 @@ ActiveRecord::Schema.define(version: 20170318163837) do
   add_foreign_key "accounts", "users"
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
+  add_foreign_key "oauth_accounts", "users"
   add_foreign_key "users", "login_names", column: "login_name"
 end
