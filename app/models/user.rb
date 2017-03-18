@@ -15,4 +15,6 @@
 
 class User < ApplicationRecord
   include HasLoginName
+
+  has_one :account
 end
