@@ -14,7 +14,5 @@
 #
 
 class User < ApplicationRecord
-  validates :login_name,
-    presence: true,
-    uniqueness: true
+  include HasLoginName
 end
