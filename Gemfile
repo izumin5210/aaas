@@ -49,6 +49,7 @@ end
 group :test do
   gem 'database_rewinder'
 
+  gem 'rspec-its'
   gem 'rspec-validator_spec_helper'
   gem 'rspec-parameterized'
 end
