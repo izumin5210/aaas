@@ -40,4 +40,8 @@ class OauthAccount < ApplicationRecord
   validates :provider, presence: true
   validates :raw_info, presence: true
   validates :credentials, presence: true
+
+  def email_dummy
+    "#{provider}-#{uid}@example.com"
+  end
 end
