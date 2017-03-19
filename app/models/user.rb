@@ -16,6 +16,6 @@
 class User < ApplicationRecord
   include HasLoginName
 
-  has_one :account
+  has_one :account, required: true
   has_many :oauth_accounts
 end

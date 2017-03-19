@@ -20,7 +20,13 @@ RSpec.describe CreateUserAccountCommand, type: :command do
   context 'when the login_name has already been taken' do
     before do
       LoginName.create!(id: login_name)
-      User.create!(login_name: login_name)
+      account = Account.new(
+        email: 'other@example.com',
+        password: 'password',
+        password_confirmation: 'password',
+        email_and_password_registered: true,
+      )
+      User.create!(login_name: login_name, account: account)
     end
 
     it do
@@ -28,7 +34,7 @@ RSpec.describe CreateUserAccountCommand, type: :command do
       expect(cmd.user).to_not be_persisted
       expect(cmd.account).to_not be_persisted
       expect(User.count).to eq 1
-      expect(Account.count).to eq 0
+      expect(Account.count).to eq 1
       expect(cmd.errors).to be_key(:login_name)
     end
   end
@@ -37,12 +43,13 @@ RSpec.describe CreateUserAccountCommand, type: :command do
     before do
       other_login_name = 'otheruser'
       LoginName.create!(id: other_login_name)
-      u = User.create!(login_name: other_login_name)
-      u.create_account!(
+      account = Account.new(
         email: email,
-        password: password,
-        password_confirmation: password_confirmation,
+        password: 'password',
+        password_confirmation: 'password',
+        email_and_password_registered: true,
       )
+      User.create!(login_name: other_login_name, account: account)
     end
 
     it do
