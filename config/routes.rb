@@ -5,4 +5,6 @@ Rails.application.routes.draw do
     registrations: 'accounts/registrations',
   }
   use_doorkeeper
+
+  get '/auth/:provider/callback', to: 'oauth_accounts/sessions#create'
 end
