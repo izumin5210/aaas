@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170320040953) do
+ActiveRecord::Schema.define(version: 20170320091108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,15 @@ ActiveRecord::Schema.define(version: 20170320040953) do
   end
 
   create_table "login_names", id: :string, force: :cascade do |t|
+  end
+
+  create_table "memberships", force: :cascade do |t|
+    t.integer  "user_id",         null: false
+    t.integer  "organization_id", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["organization_id"], name: "index_memberships_on_organization_id", using: :btree
+    t.index ["user_id"], name: "index_memberships_on_user_id", using: :btree
   end
 
   create_table "oauth_access_grants", force: :cascade do |t|
@@ -98,6 +107,13 @@ ActiveRecord::Schema.define(version: 20170320040953) do
     t.index ["uid"], name: "index_oauth_applications_on_uid", unique: true, using: :btree
   end
 
+  create_table "organizations", force: :cascade do |t|
+    t.string   "login_name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["login_name"], name: "index_organizations_on_login_name", unique: true, using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "login_name", null: false
     t.string   "name"
@@ -106,8 +122,11 @@ ActiveRecord::Schema.define(version: 20170320040953) do
   end
 
   add_foreign_key "accounts", "users"
+  add_foreign_key "memberships", "organizations"
+  add_foreign_key "memberships", "users"
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_accounts", "users"
+  add_foreign_key "organizations", "login_names", column: "login_name"
   add_foreign_key "users", "login_names", column: "login_name"
 end

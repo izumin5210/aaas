@@ -16,7 +16,7 @@ class LoginName < ApplicationRecord
 
   class << self
     def namable_classes
-      [User]
+      [User, Organization]
     end
 
     def attribute_name
