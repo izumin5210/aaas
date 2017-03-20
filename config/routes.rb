@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root to: 'dashboard#show'
+
+  root to: 'dashboard#index'
 
   devise_for :accounts, controllers: {
     registrations: 'accounts/registrations',

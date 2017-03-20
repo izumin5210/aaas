@@ -1,0 +1,29 @@
+<h2>
+  <%= current_user.login_name %>
+</h2>
+
+<hr>
+
+<h3>Applications</h3>
+
+<ul>
+  <% current_user.oauth_applications.each do |application| %>
+    <li>
+      <%= link_to application.name, oauth_application_path(application) %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to 'new application', new_oauth_application_path %>
+
+<hr>
+
+<h3>Organizations</h3>
+
+<ul>
+  <% current_user.organizations.each do |organization| %>
+    <li>
+      <%= organization.login_name %>
+    </li>
+  <% end %>
+</ul>
