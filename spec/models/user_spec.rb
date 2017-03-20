@@ -12,6 +12,11 @@
 # **`created_at`**  | `datetime`         | `not null`
 # **`updated_at`**  | `datetime`         | `not null`
 #
+# ### Indexes
+#
+# * `index_users_on_login_name` (_unique_):
+#     * **`login_name`**
+#
 
 require 'rails_helper'
 
