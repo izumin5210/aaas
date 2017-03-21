@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -eu
+
+container_id=$(docker-compose ps -q puma)
+running_container_id=$(docker ps --quiet --filter id=$container_id)
+
+subcommand="run --rm"
+
+if [ -n "$running_container_id" ]; then
+  subcommand="exec"
+fi
+
+set -x
+docker-compose $subcommand puma $@
