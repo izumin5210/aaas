@@ -21,10 +21,12 @@ services:
     - ./db:/app/db
     - ./lib:/app/lib
     - ./public:/app/public
+    - ./spec:/app/spec
     - ./Gemfile:/app/Gemfile
     - ./Gemfile.lock:/app/Gemfile.lock
     - ./Rakefile:/app/Rakefile
     - ./config.ru:/app/config.ru
+    - ./.rspec:/app/.rspec
     - bundle_install:/app/vendor/bundle
     - bundle:/app/.bundle
     ports:
