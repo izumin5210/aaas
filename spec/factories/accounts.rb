@@ -34,6 +34,8 @@
 
 FactoryGirl.define do
   factory :account do
-    
+    email { FFaker::InternetSE.email }
+    password 'password'
+    password_confirmation 'password'
   end
 end

@@ -20,7 +20,12 @@
 
 FactoryGirl.define do
   factory :user do
-    login_name "MyString"
-    name "MyString"
+    before(:create) { |u| LoginName.create!(id: u.login_name).errors }
+    login_name { FFaker::InternetSE.login_user_name }
+    name { FFaker::Name.name }
+
+    trait :with_account do
+      account { build(:account) }
+    end
   end
 end
