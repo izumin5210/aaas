@@ -1,5 +1,5 @@
 class LoginNameFormatValidator < ActiveModel::EachValidator
-  FORMAT_REGEX = /^[a-zA-Z0-9](?:[a-zA-Z0-9\-]?[a-zA-Z0-9])*$/
+  FORMAT_REGEX = /^[\w-]+$/
   LENGTH_MAX = 39
 
   def validate_each(record, attribute, value)

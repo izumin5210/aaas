@@ -10,18 +10,12 @@ RSpec.describe LoginNameFormatValidator, type: :validator do
     'aaa'    | be_valid
     'a' * 39 | be_valid
     'a' * 40 | be_invalid
-    'a-'     | be_invalid
-    '-a'     | be_invalid
-    'a-a'    | be_valid
-    'a--a'   | be_invalid
-    'a-a-a'  | be_valid
-    'a_a-a'  | be_invalid
+    'a-_'    | be_valid
+    '-_a'    | be_valid
+    '___'    | be_valid
     'aあa-a' | be_invalid
     '0123'   | be_valid
     '0123aa' | be_valid
-    '012-3'  | be_valid
-    '-0123'  | be_invalid
-    '0123-'  | be_invalid
   end
 
   with_them do
