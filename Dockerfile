@@ -16,8 +16,6 @@ RUN mkdir -p $APP/tmp/cache \
   && mkdir -p $APP/tmp/pids \
   && mkdir -p $APP/tmp/sockets
 
-COPY . $APP
-
 ENTRYPOINT [ \
   "prehook", "ruby -v", \
   "--", \
