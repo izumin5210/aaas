@@ -30,17 +30,12 @@ class FindOrCreateOauthAccountCommand
   end
 
   def transaction!
-    find_or_create_login_name
     @oauth_account = build_oauth_account
     @user = build_user
     @account = build_account
 
     user.save!
     user.oauth_accounts << oauth_account
-  end
-
-  def find_or_create_login_name
-    LoginName.find_or_create_by(id: user&.login_name || login_name)
   end
 
   def build_oauth_account

@@ -112,7 +112,7 @@ RSpec.describe FindOrCreateOauthAccountCommand, type: :command do
 
       where(:record_class, :count) do
         User         | 0
-        LoginName    | 1
+        LoginName    | 0
         Account      | 0
         OauthAccount | 0
       end

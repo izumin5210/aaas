@@ -31,15 +31,10 @@ class CreateUserAccountCommand
   private
 
   def transaction!
-    find_or_create_login_name
     @user = build_user 
     @account = build_account
     user.save!
     account.save!
-  end
-
-  def find_or_create_login_name
-    LoginName.find_or_create_by(id: login_name)
   end
 
   def build_user
