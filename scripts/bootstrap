@@ -4,6 +4,10 @@ set -eu
 
 dirname=$(dirname $0)
 
+if [ ! -e $dirname/../.env ]; then
+  cp -v $dirname/../.env{.sample,}
+fi
+
 set -x
 
 $dirname/clean
