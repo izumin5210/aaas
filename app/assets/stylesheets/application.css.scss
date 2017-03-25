@@ -1,0 +1,16 @@
+@import 'font-awesome';
+@import './vendor/**/*';
+
+@import './settings/colors';
+@import './settings/constants';
+
+@import './pages/**/*';
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+}
