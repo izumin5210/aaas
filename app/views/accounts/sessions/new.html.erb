@@ -1,0 +1,31 @@
+<main class="SignInOrUp">
+  <div class="SignInOrUp__container">
+    <h2 class="SignInOrUp__heading">Log in</h2>
+
+    <ul class="SignInOrUp__oauthProviders">
+      <li class="item">
+        <%= link_to fa_icon('github'), '/auth/github', class: 'link github' %>
+      </li>
+      <li class="item">
+        <%= link_to fa_icon('twitter'), '/auth/twitter', class: 'link twitter' %>
+      </li>
+    </ul>
+
+    <p class="SignInOrUp__separator">OR</p>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'SignInOrUp__form' }) do |f| %>
+      <%= f.email_field :email, autofocus: true, placeholder: 'email or username', class: 'SignInOrUp__textField' %>
+
+      <%= f.password_field :password, autocomplete: "off", placeholder: 'password', class: 'SignInOrUp__textField' %>
+
+      <% if devise_mapping.rememberable? -%>
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+      <% end -%>
+
+      <%= f.submit "Log in", class: 'SignInOrUp__submit' %>
+    <% end %>
+
+    <%= render "accounts/shared/links" %>
+  </div>
+</main>
