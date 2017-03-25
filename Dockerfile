@@ -5,6 +5,7 @@ WORKDIR $APP
 
 RUN apk --update add \
     build-base \
+    nodejs \
     postgresql-dev \
     tzdata \
   && apk add --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ \
