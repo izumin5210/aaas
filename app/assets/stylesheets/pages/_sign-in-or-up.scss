@@ -1,0 +1,135 @@
+.SignInOrUp {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $gray50;
+}
+
+.SignInOrUp__container {
+  flex: 0 0 320px;
+  padding: 4 * $spacing;
+  background-color: $white;
+}
+
+.SignInOrUp__heading {
+  font-size: $font-size-lg;
+  color: $gray900;
+}
+
+.SignInOrUp__oauthProviders {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  margin: $spacing 0;
+
+  &> .item {
+    flex: 0 0;
+    margin: 0 $spacing / 2;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &> .item > .link {
+    $size: 24px;
+
+    display: block;
+    width: $size;
+    height: $size;
+    line-height: $size;
+    text-align: center;
+    font-size: 1.5rem; // FIXME
+
+    &.github {
+      &:link,
+      &:visited {
+        color: $github;
+      }
+    }
+
+    &.twitter {
+      &:link,
+      &:visited {
+        color: $twitter;
+      }
+    }
+
+    &:link,
+    &:visited {
+      text-decoration: none;
+    }
+  }
+}
+
+.SignInOrUp__separator {
+  display: flex;
+  align-items: center;
+  font-size: $font-size-xs;
+  color: $gray400;
+  text-align: center;
+  margin: 2 * $spacing 0;
+
+  &:before,
+  &:after {
+    flex: 1 0;
+    display: block;
+    content: '';
+    border-top: 1px solid $gray400;
+  }
+
+  &:before {
+    margin-right: $spacing;
+  }
+
+  &:after {
+    margin-left: $spacing;
+  }
+}
+
+.SignInOrUp__form {
+}
+
+.SignInOrUp__textField {
+  display: block;
+  width: 100%;
+  color: $gray900;
+  border-radius: 4px;
+  padding: $spacing;
+  outline: none;
+  border: 1px solid $gray400;
+  color: $gray800;
+  margin-bottom: $spacing;
+  font-size: $font-size-sm;
+  transition: $transition-duration-base all;
+
+  &:focus {
+    border-color: $a100;
+  }
+}
+
+@mixin btn($color) {
+  padding: $spacing;
+  outline: none;
+  border: 1px solid $color;
+  border-radius: 4px;
+  font-size: $font-size-base;
+  color: $color;
+  text-align: center;
+  background: none;
+  transition: $transition-duration-base all;
+
+  &:hover {
+    color: $gray100;
+    background-color: $color;
+    border-color: $color;
+  }
+}
+
+.SignInOrUp__submit {
+  display: block;
+  width: 100%;
+  @include btn($a200);
+}
