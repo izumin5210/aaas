@@ -188,3 +188,29 @@
   }
 }
 
+.SignInOrUp__links {
+  margin-top: $spacing;
+}
+
+.SignInOrUp__link {
+  display: inline-block;
+  font-size: $font-size-sm;
+
+  a {
+    &:link,
+    &:visited {
+      color: $a100;
+      text-decoration: none;
+    }
+
+    &:hover {
+      color: darken($a100, 15%);
+    }
+  }
+
+  &:not(:last-child):after {
+    content: '|';
+    color: $gray400;
+    margin: 0 0.5 * $spacing;
+  }
+}
