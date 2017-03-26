@@ -8,9 +8,14 @@
 
 * {
   box-sizing: border-box;
+  line-height: $line-height-base;
 }
 
 :root {
   font-size: $font-size-base;
-  line-height: $line-height-base;
+}
+
+::before,
+::after {
+  box-sizing: inherit;
 }

@@ -4,13 +4,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   background-color: $gray50;
 }
 
 .SignInOrUp__container {
-  flex: 0 0 320px;
+  flex: 0 0;
+  width: 320px;
   padding: 4 * $spacing;
   background-color: $white;
+  border: 1px solid $gray200;
+  border-radius: 4px;
 }
 
 .SignInOrUp__heading {
@@ -33,32 +37,41 @@
     }
   }
 
+  @mixin bg($color) {
+    background-color: $color;
+    transition: $transition-duration-base all;
+
+    &:hover {
+      background-color: lighten($color, 20%);
+    }
+  }
+
   &> .item > .link {
-    $size: 24px;
+    $size: 32px;
 
     display: block;
     width: $size;
     height: $size;
+    border-radius: $size / 2;
     line-height: $size;
     text-align: center;
-    font-size: 1.5rem; // FIXME
+    font-size: $font-size-lg; // FIXME
 
     &.github {
-      &:link,
-      &:visited {
-        color: $github;
-      }
+      @include bg($github);
     }
 
     &.twitter {
-      &:link,
-      &:visited {
-        color: $twitter;
-      }
+      @include bg($twitter);
+    }
+
+    &.facebook {
+      @include bg($facebook);
     }
 
     &:link,
     &:visited {
+      color: $white;
       text-decoration: none;
     }
   }
@@ -92,6 +105,10 @@
 .SignInOrUp__form {
 }
 
+.SignInOrUp__field:not(:last-child) {
+  margin-bottom: 1.5 * $spacing;
+}
+
 .SignInOrUp__textField {
   display: block;
   width: 100%;
@@ -99,9 +116,8 @@
   border-radius: 4px;
   padding: $spacing;
   outline: none;
-  border: 1px solid $gray400;
+  border: 1px solid $gray300;
   color: $gray800;
-  margin-bottom: $spacing;
   font-size: $font-size-sm;
   transition: $transition-duration-base all;
 
@@ -115,11 +131,12 @@
   outline: none;
   border: 1px solid $color;
   border-radius: 4px;
-  font-size: $font-size-base;
+  font-size: $font-size-sm;
   color: $color;
   text-align: center;
   background: none;
   transition: $transition-duration-base all;
+  cursor: pointer;
 
   &:hover {
     color: $gray100;
@@ -133,3 +150,41 @@
   width: 100%;
   @include btn($a200);
 }
+
+.SignInOrUp__checkbox {
+  $size: 16px;
+
+  display: none;
+
+  & + label {
+    display: flex;
+    align-items: center;
+    color: $gray800;
+    font-size: $font-size-sm;
+    cursor: pointer;
+
+    &:before {
+      vertical-align: baseline;
+      display: block;
+      flex: 0 0 $size;
+      width: $size;
+      height: $size;
+      line-height: $size;
+      border-radius: 4px;
+      border: 1px solid $gray400;
+      margin-right: $spacing;
+      text-align: center;
+      color: $a200;
+      font-size: $font-size-sm;
+      font-family: 'FontAwesome';
+      content: ' ';
+    }
+  }
+
+  &:checked + label {
+    &:before {
+      content: '\f00c';
+    }
+  }
+}
+
