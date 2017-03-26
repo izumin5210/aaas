@@ -18,7 +18,7 @@
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'SignInOrUp__form' }) do |f| %>
       <div class="SignInOrUp__field">
-        <%= f.email_field :email, autofocus: true, placeholder: 'email or username', class: 'SignInOrUp__textField' %>
+        <%= f.email_field :email, placeholder: 'email or username', class: 'SignInOrUp__textField' %>
       </div>
 
       <div class="SignInOrUp__field">

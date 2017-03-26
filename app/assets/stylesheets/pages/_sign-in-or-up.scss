@@ -20,6 +20,7 @@
 .SignInOrUp__heading {
   font-size: $font-size-lg;
   color: $gray900;
+  user-select: none;
 }
 
 .SignInOrUp__oauthProviders {
@@ -31,6 +32,7 @@
   &> .item {
     flex: 0 0;
     margin: 0 $spacing / 2;
+    user-select: none;
 
     &:last-child {
       margin-right: 0;
@@ -84,6 +86,8 @@
   color: $gray400;
   text-align: center;
   margin: 2 * $spacing 0;
+  user-select: none;
+  cursor: default;
 
   &:before,
   &:after {
@@ -148,7 +152,7 @@
 .SignInOrUp__submit {
   display: block;
   width: 100%;
-  @include btn($a200);
+  @include btn($a100);
 }
 
 .SignInOrUp__checkbox {
@@ -162,6 +166,7 @@
     color: $gray800;
     font-size: $font-size-sm;
     cursor: pointer;
+    user-select: none;
 
     &:before {
       vertical-align: baseline;
@@ -174,7 +179,7 @@
       border: 1px solid $gray400;
       margin-right: $spacing;
       text-align: center;
-      color: $a200;
+      color: $a100;
       font-size: $font-size-sm;
       font-family: 'FontAwesome';
       content: ' ';
