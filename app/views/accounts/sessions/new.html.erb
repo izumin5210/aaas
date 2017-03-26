@@ -2,17 +2,7 @@
   <div class="SignInOrUp__container">
     <h2 class="SignInOrUp__heading">Log in</h2>
 
-    <ul class="SignInOrUp__oauthProviders">
-      <li class="item">
-        <%= link_to fa_icon('github-alt'), '/auth/github', class: 'link github' %>
-      </li>
-      <li class="item">
-        <%= link_to fa_icon('twitter'), '/auth/twitter', class: 'link twitter' %>
-      </li>
-      <li class="item">
-        <%= link_to fa_icon('facebook'), '/auth/facebook', class: 'link facebook' %>
-      </li>
-    </ul>
+    <%= render "accounts/shared/auth_links" %>
 
     <p class="SignInOrUp__separator">OR</p>
 

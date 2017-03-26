@@ -1,16 +1,19 @@
-<h2>Forgot your password?</h2>
+<main class="SignInOrUp">
+  <div class="SignInOrUp__container">
+    <h2 class="SignInOrUp__heading">Forgot your password?</h2>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: 'SignInOrUp__form' }) do |f| %>
+      <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+      <div class="SignInOrUp__field">
+        <%= f.email_field :email, placeholder: 'email', class: 'SignInOrUp__textField' %>
+      </div>
+
+      <div class="SignInOrUp__field">
+        <%= f.submit 'Send me reset password instructions', class: 'SignInOrUp__submit' %>
+
+      </div>
+    <% end %>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "accounts/shared/links" %>
+  <%= render "accounts/shared/links" %>
+</main>

@@ -1,38 +1,35 @@
 <main class="SignInOrUp">
   <div class="SignInOrUp__container">
-    <h2>Sign up</h2>
+    <h2 class="SignInOrUp__heading">Sign up</h2>
 
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "accounts/shared/auth_links" %>
+
+    <p class="SignInOrUp__separator">OR</p>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'SignInOrUp__form' }) do |f| %>
       <%= devise_error_messages! %>
 
-      <div class="field">
-        <%= f.label :login_name %><br />
-        <%= f.text_field :login_name, autofocus: true %>
+      <div class="SignInOrUp__field">
+        <%= f.text_field :login_name, placeholder: 'username', class: 'SignInOrUp__textField' %>
       </div>
 
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email %>
+      <div class="SignInOrUp__field">
+        <%= f.email_field :email, placeholder: 'email', class: 'SignInOrUp__textField' %>
       </div>
 
-      <div class="field">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "off" %>
+      <div class="SignInOrUp__field">
+        <%= f.password_field :password, autocomplete: "off", placeholder: "password (#{@minimum_password_length} characters minimum)", class: 'SignInOrUp__textField' %>
       </div>
 
-      <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      <div class="SignInOrUp__field">
+        <%= f.password_field :password_confirmation, placeholder: 'password confirmation', autocomplete: "off", class: 'SignInOrUp__textField' %>
       </div>
 
-      <div class="actions">
-        <%= f.submit "Sign up" %>
+      <div class="SignInOrUp__field">
+        <%= f.submit "Sign up", class: 'SignInOrUp__submit' %>
       </div>
     <% end %>
 
-    <%= render "accounts/shared/links" %>
   </div>
+  <%= render "accounts/shared/links" %>
 </main>
