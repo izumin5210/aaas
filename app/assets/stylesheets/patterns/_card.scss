@@ -1,0 +1,11 @@
+@mixin card {
+  margin: $spacing;
+  background-color: $white;
+  border-radius: $border-radius-base;
+
+  @include z-depth-1;
+}
+
+@mixin card-heading {
+  font-size: $font-size-title;
+}

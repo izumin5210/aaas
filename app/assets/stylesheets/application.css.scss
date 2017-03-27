@@ -5,6 +5,7 @@
 @import './settings/constants';
 
 @import './patterns/**/*';
+@import './components/**/*';
 @import './pages/**/*';
 
 * {
@@ -19,4 +20,8 @@
 ::before,
 ::after {
   box-sizing: inherit;
+}
+
+html {
+  color: $gray900;
 }

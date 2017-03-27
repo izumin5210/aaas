@@ -1,0 +1,10 @@
+.App {
+  min-width: 100vw;
+  min-height: 100vh;
+  background-color: $gray50;
+}
+
+.App__container {
+  max-width: map-get($breakpoints, lg);
+  margin: 2 * $spacing auto 0;;
+}

@@ -6,6 +6,8 @@ $font-size-lg:   1.25rem;
 $font-size-sm:   .875rem;
 $font-size-xs:   .75rem;
 
+$font-size-title: 1.5rem;
+
 $font-weight-normal: normal;
 $font-weight-bold: bold;
 
@@ -28,3 +30,12 @@ $spacing: 8px;
 $border-radius-base: 4px;
 
 $transition-duration-base: .15s;
+
+$header__height: 64px;
+
+$breakpoints: (
+  xs: 0,
+  sm: 600px,
+  md: 960px,
+  lg: 1280px,
+);

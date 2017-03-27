@@ -8,6 +8,15 @@
   </head>
 
   <body>
-    <%= yield %>
+    <% if account_signed_in? %>
+      <div class="App">
+        <%= render 'shared/header' %>
+        <main class="App__container">
+          <%= yield %>
+        </main>
+      </div>
+    <% else %>
+      <%= yield %>
+    <% end %>
   </body>
 </html>

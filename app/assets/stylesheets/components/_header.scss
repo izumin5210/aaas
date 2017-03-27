@@ -1,0 +1,22 @@
+.Header {
+  width: 100%;
+  height: $header__height;
+  background-color: $b500;
+
+  @include z-depth-2;
+}
+
+.Header__inner {
+  display: flex;
+  align-items: center;
+  max-width: map-get($breakpoints, lg);
+  height: 100%;
+  margin: 0 auto;
+}
+
+.Header__heading {
+  font-size: $font-size-lg;
+  font-weight: normal;
+  padding: 0 4 * $spacing;
+  color: $white;
+}

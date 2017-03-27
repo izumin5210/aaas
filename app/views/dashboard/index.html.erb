@@ -1,29 +1,79 @@
-<h2>
-  <%= current_user.login_name %>
-</h2>
+<div class="Dashboard">
+  <div class="Dashboard__main">
+    <section class="Dashboard__section">
+      <header class="Dashboard__header">
+        <h2 class="Dashboard__heading">
+          <%= fa_icon 'cubes' %> Applications
+        </h2>
+        <%= link_to new_oauth_application_path, class: 'Dashboard__newAppButton' do %>
+          <%= fa_icon 'plus-circle' %> new application
+        <% end %>
+      </header>
 
-<hr>
+      <ul class="Dashboard__apps">
+        <% current_user.oauth_applications.each do |application| %>
+          <li class="Dashboard__app">
+            <span class="Dashboard__appName">
+              <%= link_to application.name, oauth_application_path(application), class: 'Dashboard__appNameLink' %>
+            </span>
+            <dl class="Dashboard__appMetas">
+              <dt class="key">
+                scopes
+              </dt>
+              <dd class="value">
+                <ul class="list">
+                  <% application.scopes.each do |scope| %>
+                    <li class="item"><%= scope %></li>
+                  <% end %>
+                </ul>
+              </dd>
+              <dt class="key">
+                callback urls
+              </dt>
+              <dd class="value">
+                <ul class="list">
+                  <% application.redirect_uri.each_line do |uri| %>
+                    <li class="item"><%= uri %></li>
+                  <% end %>
+                </ul>
+              </dd>
+            </dl>
+          </li>
+        <% end %>
+      </ul>
+    </section>
+  </div>
 
-<h3>Applications</h3>
+  <div class="Dashboard__sub">
+    <section class="Dashboard__section">
+      <header class="Dashboard__header">
+        <h2 class="Dashboard__heading">
+          <%= fa_icon 'users' %> Organizations
+        </h2>
+      </header>
 
-<ul>
-  <% current_user.oauth_applications.each do |application| %>
-    <li>
-      <%= link_to application.name, oauth_application_path(application) %>
-    </li>
-  <% end %>
-</ul>
+      <ul class="Dashboard__orgs">
+        <% current_user.organizations.each do |organization| %>
+          <li class="Dashboard__org">
+            <%= link_to organization.login_name, organization_path(login_name: organization.login_name), class: 'Dashboard__orgName' %>
+          </li>
+        <% end %>
+      </ul>
 
-<%= link_to 'new application', new_oauth_application_path %>
+      <footer class="Dashboard__footer">
+        <%= link_to new_organization_path, class: 'Dashboard__newOrgButton' do %>
+          <%= fa_icon 'plus-circle' %> new organization
+        <% end %>
+      </footer>
+    </section>
 
-<hr>
+    <section class="Dashboard__section">
+      <header class="Dashboard__header">
+        <h2 class="Dashboard__heading">
+          <%= fa_icon 'code-fork' %> Collaborations
+        </h2>
+      </header>
+    </section>
+  </div>
+</div>
 
-<h3>Organizations</h3>
-
-<ul>
-  <% current_user.organizations.each do |organization| %>
-    <li>
-      <%= organization.login_name %>
-    </li>
-  <% end %>
-</ul>

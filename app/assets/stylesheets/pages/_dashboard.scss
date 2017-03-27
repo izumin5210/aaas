@@ -1,0 +1,117 @@
+.Dashboard {
+  display: flex;
+}
+
+.Dashboard__main {
+  flex: 2 1;
+}
+
+.Dashboard__sub {
+  flex: 1 0;
+}
+
+.Dashboard__section {
+  @include card;
+
+  padding: 4 * $spacing 0;
+
+  &:not(:last-child) {
+    margin-bottom: 2 * $spacing;
+  }
+}
+
+.Dashboard__header,
+.Dashboard__footer {
+  margin-left: 4 * $spacing;
+  margin-right: 4 * $spacing;
+}
+
+.Dashboard__header {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: $spacing;
+}
+
+.Dashboard__heading {
+  flex: 1 0;
+  font-size: $font-size-title;
+}
+
+.Dashboard__newAppButton {
+  flex: 0 0 auto;
+  @include button($a100);
+}
+
+.Dashboard__apps {
+  list-style: none;
+}
+
+.Dashboard__app {
+  padding: 2 * $spacing 4 * $spacing;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid $gray300;
+  }
+}
+
+.Dashboard__appName {
+  display: block;
+  font-size: $font-size-title;
+  font-weight: bold;
+  margin-bottom: $spacing;
+}
+
+.Dashboard__appNameLink {
+  @include link-color;
+}
+
+.Dashboard__appMetas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+
+  .key {
+    flex: 0 0 20%;
+    height: 28px;
+  }
+
+  .value {
+    flex: 0 0 80%;
+
+    .list {
+      list-style: none;
+
+    }
+  }
+
+  .item {
+    display: inline-block;
+    border-radius: $border-radius-base;
+    border: 1px solid $gray400;
+    color: $gray600;
+    padding: 0.25 * $spacing $spacing;
+  }
+}
+
+.Dashboard__orgs {
+  list-style: none;
+  margin: 2 * $spacing 0;
+}
+
+.Dashboard__org {
+
+  &:not(:last-child) {
+    border-bottom: 1px solid $gray300;
+  }
+}
+
+.Dashboard__orgName {
+  @include link-color;
+
+  margin: 0 4 * $spacing;
+  font-size: $font-size-lg;
+}
+
+.Dashboard__newOrgButton {
+  @include button($a100);
+}
