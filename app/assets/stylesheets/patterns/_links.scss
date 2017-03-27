@@ -1,0 +1,11 @@
+@mixin link-color($color: $b400) {
+  &:link,
+  &:visited {
+    color: $color;
+    text-decoration: none;
+  }
+
+  &:hover {
+    color: darken($color, 10%);
+  }
+}
