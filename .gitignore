@@ -17,5 +17,10 @@
 .byebug_history
 
 
+### webpacker ###
+/public/packs
+/node_modules
+
+
 ### misc ###
 .env
