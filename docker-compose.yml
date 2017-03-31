@@ -21,10 +21,15 @@ services:
     - ./lib:/app/lib
     - ./public:/app/public
     - ./spec:/app/spec
+    - ./vendor:/app/vendor
     - ./Gemfile:/app/Gemfile
     - ./Gemfile.lock:/app/Gemfile.lock
     - ./Rakefile:/app/Rakefile
     - ./config.ru:/app/config.ru
+    - ./package.json:/app/package.json
+    - ./yarn.lock:/app/yarn.lock
+    - ./.babelrc:/app/.babelrc
+    - ./.postcssrc.yml:/app/.postcssrc.yml
     - ./.rspec:/app/.rspec
     - bundle_install:/app/vendor/bundle
     - bundle:/app/.bundle
