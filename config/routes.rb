@@ -16,5 +16,13 @@ Rails.application.routes.draw do
     controllers applications: 'oauth/applications'
   end
 
+  namespace :api do
+    get    '/applications',     to: 'applications#index'
+    post   '/applications',     to: 'applications#create'
+    delete '/applications/:id', to: 'applications#destroy'
+    get    '/applications/:id', to: 'applications#show'
+    patch  '/applications/:id', to: 'applications#update'
+  end
+
   get '/auth/:provider/callback', to: 'oauth_accounts/sessions#create'
 end
