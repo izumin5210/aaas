@@ -27,6 +27,9 @@ gem 'doorkeeper'
 gem 'omniauth'
 gem 'omniauth-github'
 
+gem 'the_garage'
+gem 'garage-doorkeeper'
+
 gem 'sass-rails'
 gem "autoprefixer-rails"
 gem "font-awesome-rails"
