@@ -14,10 +14,26 @@ services:
     command: ["bin/rails", "server", "--binding", "0.0.0.0"]
     env_file: .env
     volumes:
-    - bundle:/app/.bundle
+    - ./app:/app/app
+    - ./bin:/app/bin
+    - ./config:/app/config
+    - ./db:/app/db
+    - ./lib:/app/lib
+    - ./public:/app/public
+    - ./spec:/app/spec
+    - ./vendor:/app/vendor
+    - ./Gemfile:/app/Gemfile
+    - ./Gemfile.lock:/app/Gemfile.lock
+    - ./Rakefile:/app/Rakefile
+    - ./config.ru:/app/config.ru
+    - ./package.json:/app/package.json
+    - ./yarn.lock:/app/yarn.lock
+    - ./.babelrc:/app/.babelrc
+    - ./.postcssrc.yml:/app/.postcssrc.yml
+    - ./.rspec:/app/.rspec
     - bundle_install:/app/vendor/bundle
+    - bundle:/app/.bundle
     - node_modules:/app/node_modules
-    - .:/app
     ports:
     - 3000:3000
     depends_on:
