@@ -1325,13 +1325,13 @@ date-now@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/date-now/-/date-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
 
-debug@2.6.1:
+debug@2.6.1, debug@^2.2.0:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.1.tgz#79855090ba2c4e3115cc7d8769491d58f0491351"
   dependencies:
     ms "0.7.2"
 
-debug@2.6.3, debug@^2.1.1, debug@^2.2.0:
+debug@2.6.3, debug@^2.1.1:
   version "2.6.3"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.3.tgz#0f7eb8c30965ec08c72accfa0130c8b79984141d"
   dependencies:
@@ -1607,9 +1607,9 @@ fbjs@^0.8.1, fbjs@^0.8.4:
     setimmediate "^1.0.5"
     ua-parser-js "^0.7.9"
 
-file-loader@^0.11.0:
-  version "0.11.0"
-  resolved "https://registry.yarnpkg.com/file-loader/-/file-loader-0.11.0.tgz#af018f39c44617305f1ee92f850c7a65a4331616"
+file-loader@^0.11.1:
+  version "0.11.1"
+  resolved "https://registry.yarnpkg.com/file-loader/-/file-loader-0.11.1.tgz#6b328ee1234a729e4e47d36375dd6d35c0e1db84"
   dependencies:
     loader-utils "^1.0.2"
 
@@ -2334,7 +2334,7 @@ loader-utils@^0.2.16:
     json5 "^0.5.0"
     object-assign "^4.0.1"
 
-loader-utils@^1.0.1, loader-utils@^1.0.2:
+loader-utils@^1.0.1, loader-utils@^1.0.2, loader-utils@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/loader-utils/-/loader-utils-1.1.0.tgz#c98aef488bcceda2ffb5e2de646d6a754429f5cd"
   dependencies:
@@ -3403,11 +3403,11 @@ querystringify@0.0.x:
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/querystringify/-/querystringify-0.0.4.tgz#0cf7f84f9463ff0ae51c4c4b142d95be37724d9c"
 
-rails-erb-loader@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/rails-erb-loader/-/rails-erb-loader-3.2.0.tgz#b3972cffaedc04ae06e989b5a1b1d3223feca023"
+rails-erb-loader@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/rails-erb-loader/-/rails-erb-loader-4.0.0.tgz#761b3690da73a4761aad0a271d2033d8630020f2"
   dependencies:
-    loader-utils "^0.2.16"
+    loader-utils "^1.1.0"
     lodash.defaults "^4.2.0"
 
 randomatic@^1.1.3:
