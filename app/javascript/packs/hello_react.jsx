@@ -1,25 +1,46 @@
+/* @flow */
 // Run this example by adding <%= javascript_pack_tag 'hello_react' %> to the head of your layout file,
 // like app/views/layouts/application.html.erb. All it does is render <div>Hello React</div> at the bottom
 // of the page.
+import { PureComponent } from 'react'
 
-import React from 'react'
-import ReactDOM from 'react-dom'
+import run from '../run'
 
-const Hello = props => (
-  <div>Hello {props.name}!</div>
+type Props = {
+}
+
+type State = {
+  name: string
+}
+
+class Hello extends PureComponent<void, Props, State> {
+  constructor(props: Props) {
+    super(props)
+    this.state = {
+      name: 'React',
+    }
+  }
+
+  handleChange(e: SyntheticInputEvent) {
+    this.setState({ name: e.target.value })
+  }
+
+  render() {
+    const { name } = this.state;
+    return (
+      <p>
+        Hello&nbsp;
+        <input
+          type="text"
+          value={name}
+          onChange={::this.handleChange}
+        />
+      </p>
+    )
+  }
+}
+
+run(
+  <Hello name="React" />,
+  () => document.body.appendChild(document.createElement('div')),
 )
-
-Hello.defaultProps = {
-  name: 'David'
-}
-
-Hello.propTypes = {
-  name: React.PropTypes.string
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(
-    <Hello name="React" />,
-    document.body.appendChild(document.createElement('div')),
-  )
-})

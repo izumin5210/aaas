@@ -1,3 +1,26 @@
 {
-  "presets": ["env", "react"]
+  "passPerPreset": true,
+  "presets": [
+    {
+      "plugins": [
+        [
+          "flow-runtime",
+          {
+            "assert": true,
+            "annotate": true
+          }
+        ],
+        "react-hot-loader/babel",
+        "transform-decorators-legacy",
+        "transform-function-bind"
+      ]
+    },
+    "env",
+    [
+      "es2015",
+      { "modules": false }
+    ],
+    "stage-2",
+    "react"
+  ]
 }
