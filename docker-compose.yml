@@ -8,7 +8,7 @@ services:
     ports:
     - 5432:5432
 
-  rails:
+  rails: &app_base
     build:
       context: .
     command: ["bin/rails", "server", "--binding", "0.0.0.0"]
@@ -40,6 +40,16 @@ services:
     - db
     tty: true
     stdin_open: true
+
+  webpack:
+    <<: *app_base
+    entrypoint:
+    - prehook
+    - bin/yarn > /dev/null
+    - --
+    command: ["bin/webpack-dev-server"]
+    ports:
+    - 8080:8080
 
 volumes:
   postgres_data:

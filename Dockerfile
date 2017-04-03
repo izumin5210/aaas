@@ -30,6 +30,5 @@ RUN mkdir -p $APP/tmp/cache \
 ENTRYPOINT [ \
   "prehook", "ruby -v", \
   "prehook", "bundle install --jobs 4 --quiet --path vendor/bundle", \
-  "prehook", "bin/yarn", \
   "--" \
 ]
