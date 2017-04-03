@@ -9,6 +9,7 @@ class Api::ApplicationsController < Api::BaseController
 
   def require_resources
     @resources = current_resource_owner.oauth_applications
+    protect_resource_as OauthApplicationRepresenter
   end
 
   def create_resource

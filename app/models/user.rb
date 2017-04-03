@@ -27,5 +27,12 @@ class User < ApplicationRecord
   has_many :organizations, through: :memberships
 
   has_many :oauth_accounts
-  has_many :oauth_applications, class_name: 'Doorkeeper::Application', as: :owner
+  has_many :oauth_applications,
+    as: :owner, class_name: OauthApplication.name
+
+  def last_authorized_admin_app_token
+    admin = Organization.admin
+    app = admin.oauth_applications.first
+    Doorkeeper::AccessToken.last_authorized_token_for(app.id, id)
+  end
 end

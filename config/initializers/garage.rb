@@ -6,7 +6,7 @@ Garage::TokenScope.configure do
 
   namespace :user do
     register :read, desc: 'accessing user\'s data' do
-      access :read, OauthApplication
+      access :read, OauthApplicationRepresenter
     end
 
     register :write, desc: 'creating and updating user\'s data' do
