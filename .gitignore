@@ -24,3 +24,4 @@
 
 ### misc ###
 .env
+/flow-typed

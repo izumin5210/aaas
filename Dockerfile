@@ -11,6 +11,7 @@ RUN apk --update add --virtual build-deps \
     tar \
   && apk add \
     build-base \
+    git \
     nodejs \
     postgresql-dev \
     python \
