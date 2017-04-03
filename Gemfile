@@ -21,6 +21,7 @@ gem 'puma', '~> 3.0'
 gem 'webpacker'
 
 gem 'global'
+gem 'seed-fu'
 
 gem 'devise'
 gem 'doorkeeper'

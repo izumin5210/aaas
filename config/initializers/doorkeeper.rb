@@ -7,4 +7,7 @@ Doorkeeper.configure do
 
   enable_application_owner confirmation: true
 
+  skip_authorization do |resource_owner, client|
+    client.owner&.admin? || false
+  end
 end

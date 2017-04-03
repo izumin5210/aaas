@@ -20,8 +20,20 @@
 class Organization < ApplicationRecord
   include HasLoginName
 
+  ADMIN_NAMES = %w(aaas)
+
   has_many :memberships
   has_many :users, through: :memberships
+  has_many :oauth_applications,
+    as: :owner, class_name: Doorkeeper::Application.name
 
   validates :users, presence: true
+
+  def self.admin
+    find_by(login_name: ADMIN_NAMES[0])
+  end
+
+  def admin?
+    ADMIN_NAMES.include?(login_name)
+  end
 end
