@@ -15,4 +15,5 @@ docker-compose build
 
 $dirname/rails db:create
 $dirname/rails db:migrate
+$dirname/rails db:seed_fu
 $dirname/server
