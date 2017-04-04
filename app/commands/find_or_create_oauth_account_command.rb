@@ -2,7 +2,7 @@ class FindOrCreateOauthAccountCommand
   include ApplicationCommand
 
   attr_reader :auth_hash, :credentials, :info,
-    :oauth_account, :user, :account
+    :oauth_account, :user, :account, :access_token
 
   validates :auth_hash, presence: true
   validates :credentials, presence: true
@@ -36,6 +36,7 @@ class FindOrCreateOauthAccountCommand
 
     user.save!
     user.oauth_accounts << oauth_account
+    @access_token = find_or_create_access_token!
   end
 
   def build_oauth_account
@@ -77,5 +78,17 @@ class FindOrCreateOauthAccountCommand
         user: user,
       )
     end
+  end
+
+  def find_or_create_access_token!
+    admin = Organization.admin
+    app = admin.oauth_applications.first
+    Doorkeeper::AccessToken.find_or_create_for(
+      app,
+      user.id,
+      app.scopes,
+      nil,
+      false,
+    )
   end
 end
