@@ -3,7 +3,7 @@ import { createAction, handleActions } from 'redux-actions'
 
 import type { Action } from 'redux-actions'
 
-import type { AuthState } from '../types'
+import type { AuthState } from '../../types'
 
 // ================================
 // actions

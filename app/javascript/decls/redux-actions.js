@@ -2,16 +2,16 @@ declare module 'redux-actions' {
 
   declare type Action<P, M> =
     {
-      type: string,
-      payload: P,
-      meta: M,
-      error: false | null,
+      +type: string,
+      +payload: P,
+      +meta: M,
+      +error: false | null,
     } |
     {
-      type: string,
-      payload: Error | P,
-      meta: M,
-      error: true,
+      +type: string,
+      +payload: Error | P,
+      +meta: M,
+      +error: true,
     };
 
   declare class ActionCreator<-PI, +PO, +M> {
