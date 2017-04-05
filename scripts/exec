@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-service_name=${RAILS_APP_SERVICE_NAME:-rails}
+service_name=${DOCKER_COMPOSE_SERVICE_NAME:-rails}
 
 set -eu
 
