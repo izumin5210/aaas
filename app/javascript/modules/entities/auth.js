@@ -26,10 +26,14 @@ const initialState: AuthState = {
 };
 
 export default handleActions({
-  [((setToken : any): string)]: (state: AuthState, { payload }: SetAuthAction) => {
+  [((setToken : any): string)]: (state: AuthState, action: SetTokenAction) => {
+    if (action.error) {
+      return state
+    }
+
     return {
       ...state,
-      token: payload,
+      token: action.payload,
     }
   },
 }, initialState)

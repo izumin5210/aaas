@@ -6,7 +6,7 @@ import type {
 } from 'redux'
 import type { Action } from 'redux-actions'
 
-import type { Application } from '../entities/Application'
+import type Application from '../entities/Application'
 
 export type AuthState = {
   +token: ?string,

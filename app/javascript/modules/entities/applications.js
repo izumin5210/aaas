@@ -6,7 +6,7 @@ import type { Action } from 'redux-actions'
 import type { List } from 'immutable'
 
 import type { ApplicationsState } from '../../types'
-import type { Application } from '../../entities/Application'
+import type Application from '../../entities/Application'
 
 // ================================
 // actions
@@ -32,6 +32,11 @@ const initialState: ApplicationsState = OrderedMap()
 export default handleActions({
   [((addApplications: any): string)]: (
     state: ApplicationsState,
-    { payload }: AddApplicationsAction
-  ) => payload.reduce((s, a) => s.set(a.id, a), state),
+    action: AddApplicationsAction
+  ) => {
+    if (action.error) {
+      return state
+    }
+    return action.payload.reduce((s, a) => s.set(a.id, a), state)
+  }
 }, initialState)

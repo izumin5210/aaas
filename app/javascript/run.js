@@ -16,7 +16,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 export default function run(
   children: Element<any>,
-  getElement: () => HTMLElement,
+  getElement: () => ?HTMLElement,
   { store }: Options = {},
 ) {
   const getRoot = () => (

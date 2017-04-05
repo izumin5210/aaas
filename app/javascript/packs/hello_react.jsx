@@ -21,7 +21,9 @@ class Hello extends PureComponent<void, Props, State> {
     }
   }
 
-  handleChange(e: SyntheticInputEvent) {
+  state: State
+
+  handleChange = (e: SyntheticInputEvent) => {
     this.setState({ name: e.target.value })
   }
 
@@ -33,7 +35,7 @@ class Hello extends PureComponent<void, Props, State> {
         <input
           type="text"
           value={name}
-          onChange={::this.handleChange}
+          onChange={this.handleChange}
         />
       </p>
     )
@@ -42,5 +44,6 @@ class Hello extends PureComponent<void, Props, State> {
 
 run(
   <Hello name="React" />,
+  // $FlowFixMe
   () => document.body.appendChild(document.createElement('div')),
 )

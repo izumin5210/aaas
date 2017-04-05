@@ -7,6 +7,7 @@ import { rootSaga } from '../modules'
 
 const initialState = {}
 const store = configureStore(initialState)
+// $FlowFixMe
 store.runSaga(rootSaga)
 
 run(

@@ -9,7 +9,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 type Props = {
-  children: Element<any>,
+  children?: Element<any>,
   store: ?Object,
 }
 

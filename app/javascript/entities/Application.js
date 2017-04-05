@@ -19,5 +19,5 @@ const defaultValues: ApplicationConfig = {
 
 const ApplicationRecord = Record(defaultValues)
 
-export default class ApplicationRecord {
+export default class Application extends ApplicationRecord {
 }

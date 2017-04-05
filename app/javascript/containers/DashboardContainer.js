@@ -4,7 +4,8 @@ import { connect } from 'react-redux'
 
 import { setToken } from '../modules/entities/auth'
 
-import type { Dispatch } from 'types'
+import type { Connector } from 'react-redux'
+import type { Dispatch } from '../types'
 
 type RequiredProps = {
 }
@@ -29,8 +30,12 @@ class DashboardContainer extends Component<void, Props, void> {
 
   componentDidMount() {
     const el = document.querySelector('meta[name=access-token]')
-    const token = el.getAttribute('content')
-    this.props.setToken(token)
+    if (el != null) {
+      const token = el.getAttribute('content')
+      if (token != null) {
+        this.props.setToken(token)
+      }
+    }
   }
 
   render() {
