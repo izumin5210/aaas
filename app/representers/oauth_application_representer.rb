@@ -4,7 +4,7 @@ class OauthApplicationRepresenter < ApplicationRepresenter
   property :name
   property :uid
   property :secret
-  property :redirect_uri
+  property :redirect_uri, as: :redirectUri
   collection :scopes
 
   delegate :id, :name, :uid, :secret, :redirect_uri, :scopes, to: :model
