@@ -29,6 +29,14 @@ class Organization < ApplicationRecord
 
   validates :users, presence: true
 
+  scope :with_user, -> user_id {
+    m_arel = Membership.arel_table
+    u_arel = User.arel_table
+    arel_table
+      .join(m_arel).on(arel_table[:id].eq(m_arel[:organization_id]))
+      .join(u_arel).on(m_arel[:user_id].eq(u_arel[:id]))
+  }
+
   def self.admin
     find_by(login_name: ADMIN_NAMES[0])
   end

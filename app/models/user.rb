@@ -30,6 +30,14 @@ class User < ApplicationRecord
   has_many :oauth_applications,
     as: :owner, class_name: OauthApplication.name
 
+  scope :by_id, -> user_id {
+    arel_table[:id].eq(user_id)
+  }
+
+  def build_organization(params)
+    Organization.new(params.merge( users: [self] ))
+  end
+
   def last_authorized_admin_app_token
     admin = Organization.admin
     app = admin.oauth_applications.first
