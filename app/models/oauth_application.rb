@@ -27,14 +27,25 @@
 #
 
 class OauthApplication < Doorkeeper::Application
+  # OauthApplication.find_by_sql(
+  #   OauthApplication
+  #   .joins(OauthApplication.with_organizations.join_sources)
+  #   .joins(Organization.with_user(1).join_sources)
+  #   .where(User.by_id(1))
+  # )
   scope :with_organizations, -> {
     o_arel = Organization.arel_table
-    arel_table.join(o_arel).on(
+    arel_table.join(o_arel, Arel::Nodes::OuterJoin).on(
       Arel::Nodes::And.new([
         arel_table[:owner_type].eq(Organization.name),
         arel_table[:owner_id].eq(o_arel[:id]),
       ])
     )
+  }
+
+  scope :by_user_id, -> user_id {
+    arel_table[:owner_type].eq(User.name)
+      .and(arel_table[:owner_id].eq(user_id))
   }
 
   def to_resource

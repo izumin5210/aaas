@@ -33,8 +33,8 @@ class Organization < ApplicationRecord
     m_arel = Membership.arel_table
     u_arel = User.arel_table
     arel_table
-      .join(m_arel).on(arel_table[:id].eq(m_arel[:organization_id]))
-      .join(u_arel).on(m_arel[:user_id].eq(u_arel[:id]))
+      .join(m_arel, Arel::Nodes::OuterJoin).on(arel_table[:id].eq(m_arel[:organization_id]))
+      .join(u_arel, Arel::Nodes::OuterJoin).on(m_arel[:user_id].eq(u_arel[:id]))
   }
 
   def self.admin
