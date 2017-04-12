@@ -1,6 +1,6 @@
 /* @flow */
 import { createAction, handleActions } from 'redux-actions'
-import { OrderedMap } from 'immutable'
+import { Map } from 'immutable'
 
 import type { Action } from 'redux-actions'
 import type { List } from 'immutable'
@@ -31,10 +31,11 @@ export const actions = {
 // reducer
 // ================================
 
-const initialState: ApplicationsState = OrderedMap()
+const initialState: ApplicationsState = Map()
 
 export default handleActions({
-  [((addApplications: any): string)]: (
+  // $FlowFixMe
+  [addApplications]: (
     state: ApplicationsState,
     action: AddApplicationsAction
   ) => {

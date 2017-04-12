@@ -1,9 +1,10 @@
 /* @flow */
 import { createAction, handleActions } from 'redux-actions'
+import { createSelector } from 'reselect'
 
 import type { Action } from 'redux-actions'
 
-import type { AuthState } from '../../types'
+import type { RootState, AuthState } from '../../types'
 
 // ================================
 // actions
@@ -30,7 +31,11 @@ const initialState: AuthState = {
 };
 
 export default handleActions({
-  [((setToken : any): string)]: (state: AuthState, action: SetTokenAction) => {
+  // $FlowFixMe
+  [setToken]: (
+    state: AuthState,
+    action: SetTokenAction,
+  ) => {
     if (action.error) {
       return state
     }
@@ -41,3 +46,19 @@ export default handleActions({
     }
   },
 }, initialState)
+
+
+// ================================
+// selectors
+// ================================
+
+const authSelector = ({ entities }: RootState) => entities.auth
+const accessTokenSelector = createSelector(
+  authSelector,
+  ({ token }: AuthState) => token,
+)
+
+export const selectors = {
+  auth: authSelector,
+  accessToken: accessTokenSelector,
+}
