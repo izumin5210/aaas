@@ -2,7 +2,7 @@
 import { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { setToken } from '../modules/entities/auth'
+import { actions as authActions } from '../modules/entities/auth'
 
 import type { Connector } from 'react-redux'
 import type { Dispatch } from '../types'
@@ -19,7 +19,7 @@ type Props = RequiredProps & InjectedProps
 const connector: Connector<RequiredProps, Props> = connect(
   () => ({}),
   (dispatch: Dispatch<any, any>) => ({
-    setToken: (token: string) => dispatch(setToken(token)),
+    setToken: (token: string) => dispatch(authActions.setToken(token)),
   }),
 )
 

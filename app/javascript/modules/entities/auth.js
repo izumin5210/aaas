@@ -9,12 +9,16 @@ import type { AuthState } from '../../types'
 // actions
 // ================================
 
-export type SetTokenAction = Action<string, void>
+type SetTokenAction = Action<string, void>
 const SET_TOKEN = 'auth:setToken'
-export const setToken = createAction(
+const setToken = createAction(
   SET_TOKEN,
   (payload: string) => payload,
 )
+
+export const actions = {
+  setToken,
+}
 
 
 // ================================
