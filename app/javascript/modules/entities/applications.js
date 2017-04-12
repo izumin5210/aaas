@@ -1,6 +1,6 @@
 /* @flow */
 import { createAction, handleActions } from 'redux-actions'
-import { OrderedMap } from 'immutable'
+import { Map } from 'immutable'
 
 import type { Action } from 'redux-actions'
 import type { List } from 'immutable'
@@ -12,25 +12,30 @@ import type Application from '../../entities/Application'
 // actions
 // ================================
 
-export type AddApplicationsAction = Action<List<Application>, void>
+type AddApplicationsAction = Action<List<Application>, void>
 const ADD_APPLICATIONS = 'applications:add'
-export const addApplications = createAction(
+const addApplications = createAction(
   ADD_APPLICATIONS,
   (payload: List<Application>) => payload,
 )
 
 const FETCH_APPLICATIONS = 'applications:fetch'
-export const fetchApplications = createAction(FETCH_APPLICATIONS)
+const fetchApplications = createAction(FETCH_APPLICATIONS)
 
+export const actions = {
+  addApplications,
+  fetchApplications,
+};
 
 // ================================
 // reducer
 // ================================
 
-const initialState: ApplicationsState = OrderedMap()
+const initialState: ApplicationsState = Map()
 
 export default handleActions({
-  [((addApplications: any): string)]: (
+  // $FlowFixMe
+  [addApplications]: (
     state: ApplicationsState,
     action: AddApplicationsAction
   ) => {
