@@ -2,6 +2,7 @@
 import { Record } from 'immutable'
 
 type ApplicationConfig = {
+  id: number,
   name: string,
   uid: string,
   secret: string,
@@ -10,6 +11,7 @@ type ApplicationConfig = {
 }
 
 const defaultValues: ApplicationConfig = {
+  id: 0,
   name: '',
   uid: '',
   secret: '',
