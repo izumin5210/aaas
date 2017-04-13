@@ -9,13 +9,6 @@
   ],
   "plugins": [
     "transform-decorators-legacy",
-    [
-      "flow-runtime",
-      {
-        "assert": true,
-        "annotate": true
-      }
-    ],
     "react-hot-loader/babel"
   ]
 }
