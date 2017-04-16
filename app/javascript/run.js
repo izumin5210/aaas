@@ -1,8 +1,8 @@
 /* @flow */
-import { render } from 'react-dom';
+import { render } from 'react-dom'
 
-import './setup';
-import Root from './containers/Root';
+import './setup'
+import Root from './containers/Root'
 
 import type { Element } from 'react'
 
@@ -14,10 +14,10 @@ if (process.env.NODE_ENV !== 'production') {
   require('react-hot-loader/patch')
 }
 
-export default function run(
+export default function run (
   children: Element<any>,
   getElement: () => ?HTMLElement,
-  { store }: Options = {},
+  { store }: Options = {}
 ) {
   const getRoot = () => (
     <Root {...{ store }}>
@@ -29,7 +29,7 @@ export default function run(
     if (process.env.NODE_ENV === 'production') {
       render(
         getRoot(),
-        getElement(),
+        getElement()
       )
     } else {
       const { AppContainer } = require('react-hot-loader')
@@ -38,7 +38,7 @@ export default function run(
           <AppContainer>
             { getRoot() }
           </AppContainer>,
-          getElement(),
+          getElement()
         )
       }
 

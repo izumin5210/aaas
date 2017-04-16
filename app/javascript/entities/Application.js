@@ -16,7 +16,7 @@ const defaultValues: ApplicationConfig = {
   uid: '',
   secret: '',
   redirectUris: [],
-  scopes: [],
+  scopes: []
 }
 
 const ApplicationRecord = Record(defaultValues)

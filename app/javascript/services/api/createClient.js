@@ -5,7 +5,7 @@ import type { Axios, AxiosXHRConfigBase } from 'axios'
 
 import {
   camel2snake,
-  snake2camel,
+  snake2camel
 } from '../../utils/objects'
 
 const requestInterceptor = (config) => {
@@ -32,10 +32,9 @@ const errorResponseInterceptor = (error) => {
   return { error }
 }
 
-export default function createClient(config?: AxiosXHRConfigBase<any>): Axios {
+export default function createClient (config?: AxiosXHRConfigBase<any>): Axios {
   const client = axios.create(config)
   client.interceptors.request.use(requestInterceptor)
   client.interceptors.response.use(successResponseInterceptor, errorResponseInterceptor)
   return client
 }
-

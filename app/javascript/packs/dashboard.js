@@ -13,5 +13,5 @@ store.runSaga(rootSaga)
 run(
   <DashboardContainer />,
   () => document.querySelector('#dashboard-container'),
-  { store },
+  { store }
 )

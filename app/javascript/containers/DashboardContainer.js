@@ -27,21 +27,21 @@ type Props = RequiredProps & InjectedProps
 const connector: Connector<RequiredProps, Props> = connect(
   (state: RootStore) => {
     return {
-      applications: state.entities.applications,
-    };
+      applications: state.entities.applications
+    }
   },
   (dispatch: Dispatch<any, any>) => ({
     setToken: (token: string) => dispatch(authActions.setToken(token)),
-    fetchApps: () => dispatch(appsActions.fetchApplications()),
-  }),
+    fetchApps: () => dispatch(appsActions.fetchApplications())
+  })
 )
 
 class DashboardContainer extends Component<void, Props, void> {
-  constructor(props: Props) {
+  constructor (props: Props) {
     super(props)
   }
 
-  componentDidMount() {
+  componentDidMount () {
     const el = document.querySelector('meta[name=access-token]')
     if (el != null) {
       const token = el.getAttribute('content')
@@ -52,14 +52,14 @@ class DashboardContainer extends Component<void, Props, void> {
     }
   }
 
-  render() {
+  render () {
     const { applications } = this.props
     return (
       <Page>
         <Section>
           <SectionHeader
-            title="Applications"
-            icon="cubes"
+            title='Applications'
+            icon='cubes'
           />
           <ApplicationList
             {...{ applications }}

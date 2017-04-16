@@ -1,5 +1,4 @@
 declare module 'redux-actions' {
-
   declare type Action<P, M> =
     {
       type: string,
@@ -25,6 +24,6 @@ declare module 'redux-actions' {
     metaCreator?: (payload: PI) => M,
   ): ActionCreator<PI, PO, M>;
 
-  declare function handleAction(type: string, reducer: Object|Function): Function;
+  declare function handleAction(type: string, reducer: Object | Function): Function;
   declare function handleActions(reducerMap: Object, defaultState?: Object): Function;
 }

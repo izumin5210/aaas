@@ -7,11 +7,11 @@ type Props = {
 }
 
 export default class SectionHeader extends PureComponent<void, Props, void> {
-  render() {
-    const { title, icon } = this.props;
+  render () {
+    const { title, icon } = this.props
     return (
-      <header className="Dashboard__header" key="SectionHeader">
-        <h2 className="Dashboard__heading">
+      <header className='Dashboard__header' key='SectionHeader'>
+        <h2 className='Dashboard__heading'>
           <i className={`fa fa-${icon}`} />
           { title }
         </h2>

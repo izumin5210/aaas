@@ -12,34 +12,32 @@ type Props = {
 }
 
 export default class ApplicationMetas extends PureComponent<void, Props, void> {
-
-  static renderItem(key: string, values: Array<string>) {
+  static renderItem (key: string, values: Array<string>) {
     return [
-      <dt className="key" key={`key-${key}`}>
+      <dt className='key' key={`key-${key}`}>
         { key }
       </dt>,
-      <dd className="value" key={`value-${key}`}>
+      <dd className='value' key={`value-${key}`}>
         <ApplicationMetaValues
           {...{ values }}
         />
       </dd>
-    ];
+    ]
   }
 
-  renderItems() {
+  renderItems () {
     const { application } = this.props
     return [
       ApplicationMetas.renderItem('scopes', application.scopes),
-      ApplicationMetas.renderItem('callback urls', application.redirectUris),
-    ];
+      ApplicationMetas.renderItem('callback urls', application.redirectUris)
+    ]
   }
 
-  render() {
+  render () {
     return (
-      <dl className="Dashboard__appMetas">
+      <dl className='Dashboard__appMetas'>
         { this.renderItems() }
       </dl>
-    );
+    )
   }
 }
-

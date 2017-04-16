@@ -12,8 +12,7 @@ type Props = {
 }
 
 export default class ApplicationList extends PureComponent<void, Props, void> {
-
-  renderItems() {
+  renderItems () {
     return this.props.applications
       .map(app => (
         <ApplicationItem
@@ -24,9 +23,9 @@ export default class ApplicationList extends PureComponent<void, Props, void> {
       .toArray()
   }
 
-  render() {
+  render () {
     return (
-      <ul className="Dashboard__apps">
+      <ul className='Dashboard__apps'>
         { this.renderItems() }
       </ul>
     )

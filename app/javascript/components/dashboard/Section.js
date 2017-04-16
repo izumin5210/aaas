@@ -7,10 +7,10 @@ type Props = {
 }
 
 export default class Section extends PureComponent<void, Props, void> {
-  render() {
+  render () {
     const { children } = this.props
     return (
-      <section className="Dashboard__section">
+      <section className='Dashboard__section'>
         { children }
       </section>
     )

@@ -7,11 +7,11 @@ import type { IOEffect } from 'redux-saga/effects'
 import entities, { entitiesSaga } from './entities'
 
 export default combineReducers({
-  entities,
+  entities
 })
 
-export function* rootSaga(): Generator<IOEffect, *, *> {
+export function * rootSaga (): Generator<IOEffect, *, *> {
   yield [
-    fork(entitiesSaga),
+    fork(entitiesSaga)
   ]
 }

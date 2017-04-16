@@ -2,7 +2,7 @@
 import type { Map } from 'immutable'
 import type {
   Dispatch as ReduxDispatch,
-  Store as ReduxStore,
+  Store as ReduxStore
 } from 'redux'
 import type { Action } from 'redux-actions'
 

@@ -7,21 +7,20 @@ type Props = {
 }
 
 export default class ApplicationValues extends PureComponent<void, Props, void> {
-
-  static renderItem(value: string) {
+  static renderItem (value: string) {
     return (
-      <li className="item" key={value}>{ value }</li>
-    );
+      <li className='item' key={value}>{ value }</li>
+    )
   }
 
-  renderItems() {
+  renderItems () {
     return this.props.values
       .map(ApplicationValues.renderItem)
   }
 
-  render() {
+  render () {
     return (
-      <ul className="list">
+      <ul className='list'>
         { this.renderItems() }
       </ul>
     )

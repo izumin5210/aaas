@@ -10,13 +10,13 @@ type Params = {
 }
 
 export default class FetchApplicationRequest {
-  static async execute(params: Params): Promise<FetchApplicationRequest> {
+  static async execute (params: Params): Promise<FetchApplicationRequest> {
     const req = new FetchApplicationRequest(params)
     await req.execute()
     return req
   }
 
-  constructor({ token, client = Api }: Params) {
+  constructor ({ token, client = Api }: Params) {
     this.token = token
     this.client = client
   }
@@ -25,7 +25,7 @@ export default class FetchApplicationRequest {
   client: Api
   applications: List<Application>
 
-  async execute(): Promise<void> {
+  async execute (): Promise<void> {
     const { response, error } = await this.client.getApps(this.token)
     if (response && response.data) {
       this.applications = List(response.data.map(app => new Application(app)))

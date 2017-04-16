@@ -4,7 +4,7 @@ import createSagaMiddleware, { END } from 'redux-saga'
 
 import reducer from '../modules'
 
-export default function configureStore(initialState: any) {
+export default function configureStore (initialState: any) {
   const sagaMiddleware = createSagaMiddleware()
 
   let storeEnhancer
@@ -17,16 +17,16 @@ export default function configureStore(initialState: any) {
     storeEnhancer = compose(
       applyMiddleware(
         sagaMiddleware,
-        createLogger(),
+        createLogger()
       ),
-      DevTools.instrument(),
+      DevTools.instrument()
     )
   }
 
   const store = createStore(
     reducer,
     initialState,
-    storeEnhancer,
+    storeEnhancer
   )
 
   // $FlowFixMe

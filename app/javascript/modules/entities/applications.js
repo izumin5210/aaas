@@ -16,7 +16,7 @@ type AddApplicationsAction = Action<List<Application>, void>
 const ADD_APPLICATIONS = 'applications:add'
 const addApplications = createAction(
   ADD_APPLICATIONS,
-  (payload: List<Application>) => payload,
+  (payload: List<Application>) => payload
 )
 
 const FETCH_APPLICATIONS = 'applications:fetch'
@@ -24,8 +24,8 @@ const fetchApplications = createAction(FETCH_APPLICATIONS)
 
 export const actions = {
   addApplications,
-  fetchApplications,
-};
+  fetchApplications
+}
 
 // ================================
 // reducer

@@ -14,27 +14,26 @@ type SetTokenAction = Action<string, void>
 const SET_TOKEN = 'auth:setToken'
 const setToken = createAction(
   SET_TOKEN,
-  (payload: string) => payload,
+  (payload: string) => payload
 )
 
 export const actions = {
-  setToken,
+  setToken
 }
-
 
 // ================================
 // reducer
 // ================================
 
 const initialState: AuthState = {
-  token: null,
-};
+  token: null
+}
 
 export default handleActions({
   // $FlowFixMe
   [setToken]: (
     state: AuthState,
-    action: SetTokenAction,
+    action: SetTokenAction
   ) => {
     if (action.error) {
       return state
@@ -42,11 +41,10 @@ export default handleActions({
 
     return {
       ...state,
-      token: action.payload,
+      token: action.payload
     }
-  },
+  }
 }, initialState)
-
 
 // ================================
 // selectors
@@ -55,10 +53,10 @@ export default handleActions({
 const authSelector = ({ entities }: RootState) => entities.auth
 const accessTokenSelector = createSelector(
   authSelector,
-  ({ token }: AuthState) => token,
+  ({ token }: AuthState) => token
 )
 
 export const selectors = {
   auth: authSelector,
-  accessToken: accessTokenSelector,
+  accessToken: accessTokenSelector
 }

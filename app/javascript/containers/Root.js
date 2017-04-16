@@ -13,18 +13,17 @@ type Props = {
   store: ?Object,
 }
 
-export default function Root({ children, store }: Props) {
+export default function Root ({ children, store }: Props) {
   if (store == null) {
     return children
   }
 
   return (
     <Provider store={store}>
-      <div className="Root">
+      <div className='Root'>
         { DevTools != null && <DevTools /> }
         { children }
       </div>
     </Provider>
   )
 }
-
