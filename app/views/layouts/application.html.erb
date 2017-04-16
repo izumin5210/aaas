@@ -3,6 +3,10 @@
   <head>
     <title>App</title>
     <%= csrf_meta_tags %>
+    <% if account_signed_in? %>
+      <%- access_token = current_user.last_authorized_admin_app_token %>
+      <meta name="access-token" content="<%= access_token.token %>" >
+    <% end %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
   </head>
