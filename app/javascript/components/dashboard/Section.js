@@ -7,6 +7,9 @@ type Props = {
 }
 
 export default class Section extends PureComponent<void, Props, void> {
+  // for lint
+  props: Props
+
   render () {
     const { children } = this.props
     return (

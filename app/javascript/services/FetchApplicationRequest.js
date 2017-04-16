@@ -26,7 +26,8 @@ export default class FetchApplicationRequest {
   applications: List<Application>
 
   async execute (): Promise<void> {
-    const { response, error } = await this.client.getApps(this.token)
+    // TODO: handle errors
+    const { response } = await this.client.getApps(this.token)
     if (response && response.data) {
       this.applications = List(response.data.map(app => new Application(app)))
     }

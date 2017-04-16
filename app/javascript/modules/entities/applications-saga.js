@@ -1,5 +1,5 @@
 /* @flow */
-import { call, cancel, fork, put, select, take, takeEvery } from 'redux-saga/effects'
+import { call, fork, put, select, takeEvery } from 'redux-saga/effects'
 import type { CallEffect, IOEffect, PutEffect, SelectEffect } from 'redux-saga/effects'
 
 import {

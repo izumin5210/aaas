@@ -3,8 +3,6 @@ import { PureComponent } from 'react'
 
 import ApplicationMetaValues from './ApplicationMetaValues'
 
-import type { Map } from 'immutable'
-
 import type Application from '../../entities/Application'
 
 type Props = {
@@ -24,6 +22,9 @@ export default class ApplicationMetas extends PureComponent<void, Props, void> {
       </dd>
     ]
   }
+
+  // for lint
+  props: Props
 
   renderItems () {
     const { application } = this.props

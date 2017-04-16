@@ -7,6 +7,9 @@ type Props = {
 }
 
 export default class SectionHeader extends PureComponent<void, Props, void> {
+  // for lint
+  props: Props
+
   render () {
     const { title, icon } = this.props
     return (

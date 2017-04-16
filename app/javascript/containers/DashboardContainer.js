@@ -37,9 +37,8 @@ const connector: Connector<RequiredProps, Props> = connect(
 )
 
 class DashboardContainer extends Component<void, Props, void> {
-  constructor (props: Props) {
-    super(props)
-  }
+  // for lint
+  props: Props
 
   componentDidMount () {
     const el = document.querySelector('meta[name=access-token]')

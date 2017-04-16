@@ -3,15 +3,14 @@ import { PureComponent } from 'react'
 
 import ApplicationItem from './ApplicationItem'
 
-import type { Map } from 'immutable'
-
-import type Application from '../../entities/Application'
-
 type Props = {
   applications: ApplicationsState,
 }
 
 export default class ApplicationList extends PureComponent<void, Props, void> {
+  // for lint
+  props: Props
+
   renderItems () {
     return this.props.applications
       .map(app => (

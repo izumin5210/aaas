@@ -1,6 +1,5 @@
 /* @flow */
 import { PureComponent } from 'react'
-import type { Map } from 'immutable'
 
 type Props = {
   values: Array<string>,
@@ -12,6 +11,9 @@ export default class ApplicationValues extends PureComponent<void, Props, void> 
       <li className='item' key={value}>{ value }</li>
     )
   }
+
+  // for lint
+  props: Props
 
   renderItems () {
     return this.props.values
