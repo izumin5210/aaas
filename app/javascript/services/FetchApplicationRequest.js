@@ -6,7 +6,7 @@ import Application from '../entities/Application'
 
 type Params = {
   token: string,
-  client: Api,
+  client: typeof Api,
 }
 
 export default class FetchApplicationRequest {
@@ -22,7 +22,7 @@ export default class FetchApplicationRequest {
   }
 
   token: string
-  client: Api
+  client: typeof Api
   applications: List<Application>
 
   async execute (): Promise<void> {

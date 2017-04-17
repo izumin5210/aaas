@@ -3,6 +3,8 @@ import { PureComponent } from 'react'
 
 import ApplicationItem from './ApplicationItem'
 
+import type { ApplicationsState } from '../../types'
+
 type Props = {
   applications: ApplicationsState,
 }

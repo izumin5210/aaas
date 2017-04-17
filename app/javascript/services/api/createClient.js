@@ -1,12 +1,26 @@
 /* @flow */
 import axios from 'axios'
-
-import type { Axios, AxiosXHRConfigBase } from 'axios'
+import type {
+  Axios,
+  AxiosXHRConfigBase,
+  $AxiosXHR,
+  $AxiosError
+} from 'axios'
 
 import {
   camel2snake,
   snake2camel
 } from '../../utils/objects'
+
+type ApiErrorResponse = {
+  statusCode: number,
+  error: string,
+}
+
+export type ApiResponse<T> = Promise<{
+  response?: $AxiosXHR<T>,
+  error?: $AxiosError<ApiErrorResponse>,
+}>
 
 const requestInterceptor = (config) => {
   if (config.data instanceof Object) {
@@ -26,7 +40,9 @@ const successResponseInterceptor = (response) => {
 }
 
 const errorResponseInterceptor = (error) => {
+  // $FlowFixMe
   if (error.response && error.response.data instanceof Object) {
+    // $FlowFixMe
     error.response.data = snake2camel(error.response.data)
   }
   return { error }

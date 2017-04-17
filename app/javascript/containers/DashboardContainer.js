@@ -11,13 +11,13 @@ import SectionHeader from '../components/dashboard/SectionHeader'
 import ApplicationList from '../components/dashboard/ApplicationList'
 
 import type { Connector } from 'react-redux'
-import type { Dispatch, RootStore, ApplicationState } from '../types'
+import type { Dispatch, RootState, ApplicationsState } from '../types'
 
 type RequiredProps = {
-  applications: ApplicationState,
 }
 
 type InjectedProps = {
+  applications: ApplicationsState,
   setToken: (token: string) => any,
   fetchApps: () => any,
 }
@@ -25,11 +25,9 @@ type InjectedProps = {
 type Props = RequiredProps & InjectedProps
 
 const connector: Connector<RequiredProps, Props> = connect(
-  (state: RootStore) => {
-    return {
-      applications: state.entities.applications
-    }
-  },
+  (state: RootState) => ({
+    applications: state.entities.applications
+  }),
   (dispatch: Dispatch<any, any>) => ({
     setToken: (token: string) => dispatch(authActions.setToken(token)),
     fetchApps: () => dispatch(appsActions.fetchApplications())

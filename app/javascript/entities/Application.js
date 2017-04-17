@@ -1,7 +1,7 @@
 /* @flow */
 import { Record } from 'immutable'
 
-type ApplicationConfig = {
+export type ApplicationConfig = {
   id: number,
   name: string,
   uid: string,
@@ -21,5 +21,7 @@ const defaultValues: ApplicationConfig = {
 
 const ApplicationRecord = Record(defaultValues)
 
+// https://github.com/facebook/immutable-js/pull/1193
+// $FlowFixMe
 export default class Application extends ApplicationRecord {
 }
