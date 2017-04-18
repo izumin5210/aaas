@@ -50,6 +50,7 @@ rules:
   eslint-comments/no-unused-enable: error
   eslint-comments/no-use: off
 
-  redux-saga/yield-effects: error
-  redux-saga/no-yield-in-race: error
-  redux-saga/no-unhandled-errors: error
+  # wait for https://github.com/pke/eslint-plugin-redux-saga/issues/15
+  redux-saga/yield-effects: off
+  redux-saga/no-yield-in-race: off
+  redux-saga/no-unhandled-errors: off
