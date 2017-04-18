@@ -10,6 +10,19 @@ module.exports = merge(sharedConfig, {
     errorDetails: true
   },
 
+  module: {
+    rules: [
+      {
+        enforce: 'pre',
+        test: /\.js?$/,
+        use: [
+          { loader: 'eslint-loader' },
+        ],
+        exclude: /node_modules/,
+      },
+    ]
+  },
+
   output: {
     pathinfo: true
   }

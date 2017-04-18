@@ -1,20 +1,20 @@
 /* @flow */
-import { call, cancel, fork, put, select, take, takeEvery } from 'redux-saga/effects'
+import { call, fork, put, select, takeEvery } from 'redux-saga/effects'
 import type { CallEffect, IOEffect, PutEffect, SelectEffect } from 'redux-saga/effects'
 
 import {
-  actions,
+  actions
 } from './applications'
 
 import {
-  selectors,
+  selectors
 } from './auth'
 
 import {
-  FetchApplicationRequest,
+  FetchApplicationRequest
 } from '../../services'
 
-function* handleFetchApplications(): Generator<CallEffect | PutEffect | SelectEffect, *, *> {
+function * handleFetchApplications (): Generator<CallEffect | PutEffect | SelectEffect, *, *> {
   const token = yield select(selectors.accessToken)
 
   if (token == null) {
@@ -26,12 +26,12 @@ function* handleFetchApplications(): Generator<CallEffect | PutEffect | SelectEf
   yield put(actions.addApplications(req.applications))
 }
 
-function* watchFetchApplications(): Generator<IOEffect, *, *> {
+function * watchFetchApplications (): Generator<IOEffect, *, *> {
   yield takeEvery(actions.fetchApplications, handleFetchApplications)
 }
 
-export default function* (): Generator<IOEffect, *, *> {
+export default function * (): Generator<IOEffect, *, *> {
   yield [
-    fork(watchFetchApplications),
+    fork(watchFetchApplications)
   ]
 }

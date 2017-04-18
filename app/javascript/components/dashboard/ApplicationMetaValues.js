@@ -1,27 +1,28 @@
 /* @flow */
 import { PureComponent } from 'react'
-import type { Map } from 'immutable'
 
 type Props = {
   values: Array<string>,
 }
 
 export default class ApplicationValues extends PureComponent<void, Props, void> {
-
-  static renderItem(value: string) {
+  static renderItem (value: string) {
     return (
-      <li className="item" key={value}>{ value }</li>
-    );
+      <li className='item' key={value}>{ value }</li>
+    )
   }
 
-  renderItems() {
+  // for lint
+  props: Props
+
+  renderItems () {
     return this.props.values
       .map(ApplicationValues.renderItem)
   }
 
-  render() {
+  render () {
     return (
-      <ul className="list">
+      <ul className='list'>
         { this.renderItems() }
       </ul>
     )

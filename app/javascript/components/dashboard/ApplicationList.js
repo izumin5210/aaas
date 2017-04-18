@@ -3,17 +3,17 @@ import { PureComponent } from 'react'
 
 import ApplicationItem from './ApplicationItem'
 
-import type { Map } from 'immutable'
-
-import type Application from '../../entities/Application'
+import type { ApplicationsState } from '../../types'
 
 type Props = {
   applications: ApplicationsState,
 }
 
 export default class ApplicationList extends PureComponent<void, Props, void> {
+  // for lint
+  props: Props
 
-  renderItems() {
+  renderItems () {
     return this.props.applications
       .map(app => (
         <ApplicationItem
@@ -24,9 +24,9 @@ export default class ApplicationList extends PureComponent<void, Props, void> {
       .toArray()
   }
 
-  render() {
+  render () {
     return (
-      <ul className="Dashboard__apps">
+      <ul className='Dashboard__apps'>
         { this.renderItems() }
       </ul>
     )

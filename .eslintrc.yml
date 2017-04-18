@@ -1,0 +1,56 @@
+env:
+  browser: true
+  node: true
+  commonjs: true
+  es6: true
+  mocha: true
+
+parser: babel-eslint
+
+parserOptions:
+  ecmaFeatures:
+    experimentalObjectRestSpread: true
+    jsx: true
+  sourceType: module
+
+extends:
+- standard
+- standard-react
+- plugin:flowtype/recommended
+- plugin:import/errors
+- plugin:import/warnings
+- plugin:jsx-a11y/recommended
+
+plugins:
+- flowtype
+- import
+- jsx-a11y
+- eslint-comments
+- redux-saga
+
+settings:
+  import/resolver:
+    node:
+      moduleDirectory:
+      - node_modules
+
+globals:
+  assert: true
+  React: true
+  Perf: true
+
+rules:
+  # wait for https://github.com/benmosher/eslint-plugin-import/issues/708
+  import/named: off
+
+  eslint-comments/disable-enable-pair: error
+  eslint-comments/no-duplicate-disable: error
+  eslint-comments/no-unlimited-disable: error
+  eslint-comments/no-unused-disable: error
+  eslint-comments/no-unused-enable: error
+  eslint-comments/no-use: off
+
+  # wait for https://github.com/pke/eslint-plugin-redux-saga/issues/15
+  redux-saga/yield-effects: off
+  redux-saga/no-yield-in-race: off
+  redux-saga/no-unhandled-errors: off

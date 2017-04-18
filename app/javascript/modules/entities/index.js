@@ -11,11 +11,11 @@ import applicationsSaga from './applications-saga'
 
 export default combineReducers({
   auth,
-  applications,
+  applications
 })
 
-export function* entitiesSaga(): Generator<IOEffect, *, *> {
+export function * entitiesSaga (): Generator<IOEffect, *, *> {
   yield [
-    fork(applicationsSaga),
+    fork(applicationsSaga)
   ]
 }

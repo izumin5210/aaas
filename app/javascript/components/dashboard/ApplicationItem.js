@@ -3,8 +3,6 @@ import { PureComponent } from 'react'
 
 import ApplicationMetas from './ApplicationMetas'
 
-import type { Map } from 'immutable'
-
 import type Application from '../../entities/Application'
 
 type Props = {
@@ -12,21 +10,23 @@ type Props = {
 }
 
 export default class ApplicationItem extends PureComponent<void, Props, void> {
+  // for lint
+  props: Props
 
-  renderAppName() {
+  renderAppName () {
     const { application } = this.props
     return (
-      <span className="Dashboard__appName">
-        <a href="/" className="Dashboard__appNameLink">
+      <span className='Dashboard__appName'>
+        <a href='/' className='Dashboard__appNameLink'>
           { application.name }
         </a>
       </span>
-    );
+    )
   }
 
-  render() {
+  render () {
     return (
-      <li className="Dashboard__app">
+      <li className='Dashboard__app'>
         { this.renderAppName() }
         <ApplicationMetas
           application={this.props.application}
