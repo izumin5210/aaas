@@ -40,6 +40,9 @@ globals:
   Perf: true
 
 rules:
+  # wait for https://github.com/benmosher/eslint-plugin-import/issues/708
+  import/named: off
+
   eslint-comments/disable-enable-pair: error
   eslint-comments/no-duplicate-disable: error
   eslint-comments/no-unlimited-disable: error
